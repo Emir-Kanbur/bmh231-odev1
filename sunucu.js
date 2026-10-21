@@ -3,6 +3,11 @@ const http = require('node:http');
 const sunucu = http.createServer((istek, yanit) => {
   const yol = istek.url.split('?')[0];
   console.log(`${istek.method} ${yol}`);
+  if (yol === '/api/ders') {
+    yanit.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    yanit.end(JSON.stringify({ kod: 'BMH231', ad: 'Web Programlama', gun: 'Cuma' }));
+    return;
+  }
   if (yol === '/') {
     yanit.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     yanit.end(`<!doctype html>
