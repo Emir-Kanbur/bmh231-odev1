@@ -1,0 +1,24 @@
+{
+  "name": "bmh231-odev1",
+  "version": "1.0.0",
+  "description": "BMH231 Web Programlama Ödev 1 HTTP sunucusu",
+  "main": "sunucu.js",
+  "scripts": {
+    "start": "node sunucu.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emir-Kanbur/bmh231-odev1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Emir-Kanbur/bmh231-odev1/issues"
+  },
+  "homepage": "https://github.com/Emir-Kanbur/bmh231-odev1#readme",
+  "dependencies": {
+    "dayjs": "^1.11.23"
+  }
+}
