@@ -4,7 +4,8 @@
   "description": "BMH231 Web Programlama Ödev 1 HTTP sunucusu",
   "main": "sunucu.js",
   "scripts": {
-    "start": "node sunucu.js"
+    "start": "node sunucu.js",
+    "test": "TZ=Europe/Istanbul node --test"
   },
   "repository": {
     "type": "git",
