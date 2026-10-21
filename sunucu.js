@@ -25,6 +25,24 @@ const sunucu = http.createServer((istek, yanit) => {
     yanit.end(JSON.stringify({ kod: 'BMH231', ad: 'Web Programlama', gun: 'Cuma' }));
     return;
   }
+  if (yol === '/hakkimda') {
+    yanit.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+    yanit.end(`<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hakkımda</title>
+</head>
+<body>
+  <h1>Hakkımda</h1>
+  <p>Bilgisayar mühendisliği öğrencisiyim. BMH231 Web Programlama dersinde
+  HTTP isteklerini ve Node.js ile sunucu geliştirmeyi öğreniyorum.</p>
+  <a href="/">Ana sayfa</a>
+</body>
+</html>`);
+    return;
+  }
   if (yol === '/') {
     yanit.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     yanit.end(`<!doctype html>
