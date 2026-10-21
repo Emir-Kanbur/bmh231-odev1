@@ -4,6 +4,12 @@ const dayjs = require('dayjs');
 const sunucu = http.createServer((istek, yanit) => {
   const yol = istek.url.split('?')[0];
   console.log(`${istek.method} ${yol}`);
+  // Yöntem kontrolü yol kontrolünden önce gelir: bilinmeyen yolda da 405.
+  if (istek.method !== 'GET') {
+    yanit.writeHead(405, { 'Content-Type': 'text/plain; charset=utf-8', Allow: 'GET' });
+    yanit.end('Yönteme izin verilmiyor');
+    return;
+  }
   if (yol === '/api/agep') {
     // dayjs sunucunun yerel saat dilimini kullanır (bu cihazda Europe/Istanbul).
     // Saatleri değil, her istekte güncellenen takvim günlerini karşılaştırıyoruz.
@@ -35,8 +41,8 @@ const sunucu = http.createServer((istek, yanit) => {
 </html>`);
     return;
   }
-  yanit.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-  yanit.end('BMH231 sunucusu çalışıyor');
+  yanit.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+  yanit.end('Sayfa bulunamadı');
 });
 
 sunucu.listen(3000, () => {
